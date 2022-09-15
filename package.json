@@ -1,0 +1,53 @@
+{
+  "name": "take-home-challenge",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "webpack serve --progress --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "lint:eslint": "eslint --cache .",
+    "lint:stylelint": "stylelint 'src/components/**/*.js'",
+    "fix:prettier": "prettier --write '**/*.{js,json,jsx,md}'",
+    "lint": "npm run lint:eslint && npm run lint:stylelint"
+  },
+  "engines": {
+    "node": "16.17.0",
+    "npm": "8.15.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kshmidt/take-home-challenge.git"
+  },
+  "author": "Kyrylo Shmidt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kshmidt/take-home-challenge/issues"
+  },
+  "homepage": "https://github.com/kshmidt/take-home-challenge#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
+    "@babel/preset-react": "^7.18.6",
+    "@stylelint/postcss-css-in-js": "^0.38.0",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-styled-components": "^2.0.7",
+    "clean-webpack-plugin": "^4.0.0",
+    "eslint": "^8.23.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "html-webpack-plugin": "^5.5.0",
+    "postcss-syntax": "^0.36.2",
+    "prettier": "^2.7.1",
+    "stylelint": "^14.11.0",
+    "stylelint-config-recommended": "^9.0.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.0"
+  }
+}
