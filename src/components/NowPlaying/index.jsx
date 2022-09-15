@@ -11,7 +11,7 @@ export const NowPlaying = ({ data, onTagClick }) => {
 
   useEffect(() => {
     audioRef.current.addEventListener("error", () => {
-      alert("Oops! Sometinng went wrong. Please try again");
+      alert("Oops! Someting went wrong. Please try again");
     })
   }, [])
 
