@@ -7,6 +7,7 @@ At first, I thought to add Redux for skill demonstration purposes, but because o
 The current implementation of the player component ("NowPlaying") is ready to consume any stream URL, but seems like the API endpoint provided for the task, requires additional credentials.
 
 Further possible improvements can be:
+ - Error and loading state indicators (spinners, error pop-ups);
  - Adding of state management library (e.g. Redux);
  - Adding of side effects management library (e.g. redux-saga);
  - Unit testing of the app (ReactTestUtils, jest);
