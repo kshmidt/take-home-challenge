@@ -14,7 +14,7 @@ Further possible improvements can be:
 
 ## Prerequisities
 
-- Node.js 16.17.0
+- Node.js 16.17.0 (latest LTS release at the moment)
 - npm 8.15.0
 
 ## Deployment
