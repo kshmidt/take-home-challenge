@@ -1,11 +1,19 @@
 import { TagsList } from "components/TagsList";
-import React from "react";
+import React, { useEffect } from "react";
 import * as s from "./styles";
 
 export const NowPlaying = ({ data, onTagClick }) => {
+  const audioRef = React.createRef(null)
+
   const handleTagClick = (tag) => {
     onTagClick(tag);
   };
+
+  useEffect(() => {
+    audioRef.current.addEventListener("error", () => {
+      alert("Oops! Sometinng went wrong. Please try again");
+    })
+  }, [])
 
   return (
     <s.Container>
@@ -16,7 +24,7 @@ export const NowPlaying = ({ data, onTagClick }) => {
         <s.Text>Popularity: {data.popularity}</s.Text>
         <s.Text>Reliability: {data.reliability}</s.Text>
         <s.Text>{data.description}</s.Text>
-        <s.Player autoPlay={true} controls={true} src={data.streamUrl}></s.Player>
+        <s.Player ref={audioRef} autoPlay={true} controls={true} src={data.streamUrl}></s.Player>
       </s.Info>
     </s.Container>
   );

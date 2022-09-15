@@ -5,12 +5,15 @@ import { NowPlaying } from "../NowPlaying";
 import * as s from "./styles";
 
 const fetchStationsData = async () => {
-  const res = await fetch(
-    "https://s3-us-west-1.amazonaws.com/cdn-web.tunein.com/stations.json"
-  );
-  const json = await res.json();
-
-  return json.data;
+  try {
+    const res = await fetch(
+      "https://s3-us-west-1.amazonaws.com/cdn-web.tunein.com/stations.json"
+    );
+    const json = await res.json();
+    return { data: json.data };
+  } catch (e) {
+    return { error: e }
+  }
 };
 
 const sortBy = (arr, key, direction) =>
@@ -42,13 +45,17 @@ export const App = () => {
   };
 
   useEffect(() => {
-    fetchStationsData().then((data) => {
-      setStations(data);
-      const tagsSet = new Set();
-      data.forEach((station) =>
-        station.tags.forEach((tag) => tagsSet.add(tag))
-      );
-      setTags(["all", ...Array.from(tagsSet)]);
+    fetchStationsData().then(({data, error}) => {
+      if (error) {
+        alert("Failed to get the station list");
+      } else {
+        setStations(data);
+        const tagsSet = new Set();
+        data.forEach((station) =>
+          station.tags.forEach((tag) => tagsSet.add(tag))
+        );
+        setTags(["all", ...Array.from(tagsSet)]);
+      }
     });
   }, []);
 
